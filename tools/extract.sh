@@ -5,6 +5,9 @@ folders=("awesome" "kitty")
 from_path="${HOME}/.config/"
 to_path="config"
 
+rm -r $to_path
+mkdir $to_path
+
 for folder in ${folders[*]}; do
   folder_path="${from_path}${folder}"
   echo "Exctracting $folder"
