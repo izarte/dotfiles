@@ -4,6 +4,6 @@
 tools=$(ls config)
 
 for tool in ${tools}; do
-  cp -rf "config/$i{tool}" "${HOME}/.config"
+  cp -rf "config/${tool}" "${HOME}/.config"
 done
 
