@@ -20,8 +20,8 @@ local _M = {
   browser = "brave",
 
   -- user defined wallpaper
-  wallpaper = "/usr/share/awesome/themes/default/background.png",
-  --wallpaper = home .. "/Pictures/your-wallpaper-here.jpg",
+  wallpaper = "/usr/share/awesome/themes/default/background.png"
+  -- wallpaper = home .. "/.config/awesome/penguino.png",
 }
 
 return _M

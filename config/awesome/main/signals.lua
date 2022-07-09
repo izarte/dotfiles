@@ -8,8 +8,6 @@ local wibox = require("wibox")
 -- Theme handling library
 local beautiful = require("beautiful")
 
--- Custom Local Library: Common Functional Decoration
-require("deco.titlebar")
 
 -- reading
 -- https://awesomewm.org/apidoc/classes/signals.html

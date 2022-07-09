@@ -11,6 +11,7 @@ local beautiful = require("beautiful")
 
 -- Miscellanous awesome library
 local menubar = require("menubar")
+require("awful.autofocus")
 
 RC = {} -- global namespace, on top before require any modules
 RC.vars = require("main.user-variables")
@@ -22,6 +23,7 @@ require("main.error-handling")
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.wallpaper = RC.vars.wallpaper
+
 -- }}}
 
 modkey = RC.vars.modkey
@@ -98,4 +100,3 @@ awful.rules.rules = main.rules(
 -- {{{ Signals
 require("main.signals")
 -- }}}
-
