@@ -10,6 +10,7 @@ local menubar = require("menubar")
 local modkey = RC.vars.modkey
 local terminal = RC.vars.terminal
 local browser = RC.vars.browser
+local file_explorer = RC.vars.file_explorer
 
 local _M = {}
 
@@ -155,8 +156,21 @@ function _M.get()
     awful.key({modkey             }, "q", function() client.focus:kill() end,
               {description = "close focus window", group = "awesome"}),
     awful.key({modkey             }, "b", function() awful.spawn(browser) end,
-              {description = "open internet browser", group = "launcher"})
-  )
+              {description = "open internet browser", group = "launcher"}),
+    awful.key({modkey             }, "e", function() awful.spawn(file_explorer) end,
+              {description = "open file explorer", group = "launcher"}),
+
+
+    awful.key({             }, "XF86AudioRaiseVolume", function() awful.util.spawn_with_shell("pactl -- set-sink-volume 0 +10%") end,
+              {description = "increase volume", group = "launcher"}),
+    awful.key({             }, "XF86AudioLowerVolume", function() awful.util.spawn_with_shell("pactl -- set-sink-volume 0 -10%") end,
+              {description = "decrease volume", group = "launcher"}),
+
+    awful.key({             }, "XF86MonBrightnessUp", function() awful.util.spawn_with_shell("blight set $(($(blight get)+20))") end,
+              {description = "increase brightenss", group = "launcher"}),
+    awful.key({             }, "XF86MonBrightnessDown", function() awful.util.spawn_with_shell("blight set $(($(blight get)-20))") end,
+              {description = "decrease brightness", group = "launcher"})
+    )
 
   return globalkeys
 end

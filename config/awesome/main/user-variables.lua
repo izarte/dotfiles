@@ -19,10 +19,12 @@ local _M = {
   -- Internet browser
   browser = "brave",
 
+  -- File explorer
+  file_explorer = "nautilus",
+
   -- user defined wallpaper
-  wallpaper = "/usr/share/awesome/themes/default/background.png"
-  -- wallpaper = home .. "/.config/awesome/penguino.png",
+  -- wallpaper = "/usr/share/awesome/themes/default/background.png"
+  wallpaper = home .. "/.config/awesome/penguino.png",
 }
 
 return _M
-
