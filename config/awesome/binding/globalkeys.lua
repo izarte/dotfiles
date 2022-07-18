@@ -160,16 +160,20 @@ function _M.get()
     awful.key({modkey             }, "e", function() awful.spawn(file_explorer) end,
               {description = "open file explorer", group = "launcher"}),
 
+    awful.key({modkey             }, "l", function() awful.util.spawn_with_shell("xlock") end,
+              {description = "lock screen", group = "control"}),
 
     awful.key({             }, "XF86AudioRaiseVolume", function() awful.util.spawn_with_shell("pactl -- set-sink-volume 0 +10%") end,
-              {description = "increase volume", group = "launcher"}),
+              {description = "increase volume", group = "control"}),
     awful.key({             }, "XF86AudioLowerVolume", function() awful.util.spawn_with_shell("pactl -- set-sink-volume 0 -10%") end,
-              {description = "decrease volume", group = "launcher"}),
+              {description = "decrease volume", group = "control"}),
+    awful.key({             }, "XF86AudioMute", function() awful.util.spawn_with_shell("pactl set-sink-mute 0 toggle ") end,
+              {description = "toogle mute/unmute", group = "control"}),
 
     awful.key({             }, "XF86MonBrightnessUp", function() awful.util.spawn_with_shell("blight set $(($(blight get)+20))") end,
-              {description = "increase brightenss", group = "launcher"}),
+              {description = "increase brightenss", group = "control"}),
     awful.key({             }, "XF86MonBrightnessDown", function() awful.util.spawn_with_shell("blight set $(($(blight get)-20))") end,
-              {description = "decrease brightness", group = "launcher"})
+              {description = "decrease brightness", group = "control"})
     )
 
   return globalkeys
