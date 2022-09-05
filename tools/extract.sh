@@ -3,7 +3,7 @@
 # Declare files to extract
 folders=("awesome" "kitty")
 from_path="${HOME}/.config/"
-to_path="../config"
+to_path="config"
 
 rm -r $to_path
 mkdir $to_path

@@ -173,8 +173,10 @@ function _M.get()
     awful.key({             }, "XF86MonBrightnessUp", function() awful.util.spawn_with_shell("blight set $(($(blight get)+20))") end,
               {description = "increase brightenss", group = "control"}),
     awful.key({             }, "XF86MonBrightnessDown", function() awful.util.spawn_with_shell("blight set $(($(blight get)-20))") end,
-              {description = "decrease brightness", group = "control"})
-    )
+              {description = "decrease brightness", group = "control"}),
+     awful.key({            }, "XF86TouchpadToggle", function() awful.util.spawn_with_shell("bash /$HOME/.config/awesome/custom_widgets/touchpad.sh") end,
+              {description = "toggle touchpad", group = "control"})
+	)
 
   return globalkeys
 end
