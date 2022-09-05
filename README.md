@@ -1,4 +1,4 @@
-# Dotfiles made by [dloez](https://github.com/dloez) and [inigo183](https://github.com/inigo183) 
+# Dotfiles made by [dloez](https://github.com/dloez) and [izarte](https://github.com/izarte) 
 
 ## Install
 
