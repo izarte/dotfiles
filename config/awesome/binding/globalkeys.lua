@@ -90,9 +90,9 @@ function _M.get()
               {description = "increase the number of columns", group = "layout"}),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
               {description = "decrease the number of columns", group = "layout"}),
-    awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
+    awful.key({ modkey,           }, "-", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
+    awful.key({ modkey, "Shift"   }, "-", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
     awful.key({ modkey, "Control" }, "n",
@@ -159,9 +159,10 @@ function _M.get()
               {description = "open internet browser", group = "launcher"}),
     awful.key({modkey             }, "e", function() awful.spawn(file_explorer) end,
               {description = "open file explorer", group = "launcher"}),
-
-    awful.key({modkey             }, "l", function() awful.util.spawn_with_shell("xlock") end,
+    awful.key({modkey             }, "l", function() awful.util.spawn_with_shell("bash " .. RC.vars.utils_path .. "/lock_screen.sh") end,
               {description = "lock screen", group = "control"}),
+    awful.key({modkey             }, "c", function() awful.spawn("code") end,
+              {description = "open visual studio code", group = "launcher"}),
 
     awful.key({             }, "XF86AudioRaiseVolume", function() awful.util.spawn_with_shell("pactl -- set-sink-volume 0 +10%") end,
               {description = "increase volume", group = "control"}),
@@ -174,7 +175,7 @@ function _M.get()
               {description = "increase brightenss", group = "control"}),
     awful.key({             }, "XF86MonBrightnessDown", function() awful.util.spawn_with_shell("blight set $(($(blight get)-20))") end,
               {description = "decrease brightness", group = "control"}),
-     awful.key({            }, "XF86TouchpadToggle", function() awful.util.spawn_with_shell("bash /$HOME/.config/awesome/custom_widgets/touchpad.sh") end,
+     awful.key({            }, "XF86TouchpadToggle", function() awful.util.spawn_with_shell("bash " .. RC.vars.utils_path .. "/touchpad.sh") end,
               {description = "toggle touchpad", group = "control"})
 	)
 

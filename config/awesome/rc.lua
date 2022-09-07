@@ -72,7 +72,7 @@ RC.launcher = awful.widget.launcher(
 menubar.utils.terminal = RC.vars.terminal
 
 -- }}}
-
+beautiful.useless_gap=5
 -- {{{ Mouse and Key bindings
 RC.globalkeys = binding.globalkeys()
 RC.globalkeys = binding.bindtotags(RC.globalkeys)

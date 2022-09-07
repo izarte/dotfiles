@@ -25,6 +25,8 @@ local _M = {
   -- user defined wallpaper
   -- wallpaper = "/usr/share/awesome/themes/default/background.png"
   wallpaper = home .. "/.config/awesome/penguino.png",
-}
 
+  -- add custom widgets path
+  utils_path = home .. "/.config/awesome/custom_widgets"
+}
 return _M
