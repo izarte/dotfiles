@@ -14,8 +14,8 @@ local theme = {}
 
 -- theme.font          = "sans 8"
 
-theme.bg_normal     = "#222222"
-theme.bg_focus      = "#535d6c"
+theme.bg_normal     = "#1A1B26"
+theme.bg_focus      = "#2c2e40"
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
@@ -25,8 +25,8 @@ theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
-theme.useless_gap   = dpi(0)
-theme.border_width  = dpi(1)
+theme.useless_gap   = dpi(5)
+theme.border_width  = dpi(0)
 theme.border_normal = "#000000"
 theme.border_focus  = "#535d6c"
 theme.border_marked = "#91231c"
@@ -52,7 +52,7 @@ theme.font = theme.font_name .. "9"
 -- theme.taglist_bg_focus = "#ff0000"
 
 -- Generate taglist squares:
-local taglist_square_size = dpi(4)
+local taglist_square_size = dpi(5)
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
     taglist_square_size, theme.fg_normal
 )
@@ -69,9 +69,11 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_submenu_icon = themes_path.."default/submenu.png"
-theme.menu_height = dpi(15)
-theme.menu_width  = dpi(100)
+theme.menu_submenu_icon = awesome_path.."/icons/arrow.png"
+theme.menu_height = dpi(35)
+theme.menu_width  = dpi(200)
+theme.menu_font = theme.font_name .. "12"
+theme.menu_submenu_icon_size = 0
 
 -- You can add as many variables as
 -- you wish and access them by using
@@ -80,11 +82,8 @@ theme.menu_width  = dpi(100)
 
 
 -- Define the image to load
--- theme.titlebar_close_button_normal = themes_path.."default/titlebar/close_normal.png"
--- theme.titlebar_close_button_focus  = themes_path.."default/titlebar/close_focus.png"
 theme.titlebar_close_button_normal = awesome_path.."/icons/the_lost_head.png"
 theme.titlebar_close_button_focus  = awesome_path.."/icons/isaac_head.png"
-
 
 theme.titlebar_minimize_button_normal = themes_path.."default/titlebar/minimize_normal.png"
 theme.titlebar_minimize_button_focus  = themes_path.."default/titlebar/minimize_focus.png"
@@ -130,10 +129,11 @@ theme.layout_cornerne = themes_path.."default/layouts/cornernew.png"
 theme.layout_cornersw = themes_path.."default/layouts/cornersww.png"
 theme.layout_cornerse = themes_path.."default/layouts/cornersew.png"
 
--- Generate Awesome icon:
-theme.awesome_icon = theme_assets.awesome_icon(
-    theme.menu_height, theme.bg_focus, theme.fg_focus
-)
+-- Menu icon
+theme.awesome_icon = awesome_path.."/icons/logo.png"
+-- theme_assets.awesome_icon(
+--     theme.menu_height, theme.bg_focus, theme.fg_focus
+-- )
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.

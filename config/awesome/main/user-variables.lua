@@ -20,7 +20,7 @@ local _M = {
   browser = "brave",
 
   -- File explorer
-  file_explorer = "nautilus",
+  file_explorer = "caja",
 
   -- user defined wallpaper
   -- wallpaper = "/usr/share/awesome/themes/default/background.png"

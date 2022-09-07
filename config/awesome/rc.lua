@@ -60,7 +60,7 @@ RC.tags = main.tags()
 
 -- {{{ Menu
 -- Create a laucher widget and a main menu
-RC.mainmenu = awful.menu({ items = main.menu() }) -- in globalkeys
+RC.mainmenu = main.menu() -- in globalkeys
 
 -- a variable needed in statusbar (helper)
 RC.launcher = awful.widget.launcher(
@@ -72,7 +72,6 @@ RC.launcher = awful.widget.launcher(
 menubar.utils.terminal = RC.vars.terminal
 
 -- }}}
-beautiful.useless_gap=5
 -- {{{ Mouse and Key bindings
 RC.globalkeys = binding.globalkeys()
 RC.globalkeys = binding.bindtotags(RC.globalkeys)
@@ -99,4 +98,9 @@ awful.rules.rules = main.rules(
 
 -- {{{ Signals
 require("main.signals")
+-- }}}
+
+-- {{{ Autostart aplications
+  awful.spawn.with_shell("picom --config $HOME/.config/picom/picom.conf --experimental-backends")
+  awful.spawn.with_shell("albert")
 -- }}}

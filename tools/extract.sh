@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Declare files to extract
-folders=("awesome" "kitty")
+folders=("awesome" "kitty" "picom")
 from_path="${HOME}/.config/"
 to_path="config"
 

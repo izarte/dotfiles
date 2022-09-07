@@ -163,6 +163,8 @@ function _M.get()
               {description = "lock screen", group = "control"}),
     awful.key({modkey             }, "c", function() awful.spawn("code") end,
               {description = "open visual studio code", group = "launcher"}),
+    awful.key({modkey             }, "space", function() awful.spawn("albert toggle") end,
+              {description = "open app finder", group = "launcher"}),
 
     awful.key({             }, "XF86AudioRaiseVolume", function() awful.util.spawn_with_shell("pactl -- set-sink-volume 0 +10%") end,
               {description = "increase volume", group = "control"}),
