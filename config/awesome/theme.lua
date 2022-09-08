@@ -9,6 +9,7 @@ local dpi = xresources.apply_dpi
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 local awesome_path = os.getenv("HOME") .. ("/.config/awesome/")
+local icons_path = awesome_path .. "icons/"
 
 local theme = {}
 
@@ -66,10 +67,28 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
 
+-- tags
+theme.tag1 = icons_path .. "tags/tag1.png"
+theme.tag2 = icons_path .. "tags/tag2.png"
+theme.tag3 = icons_path .. "tags/tag3.png"
+theme.tag4 = icons_path .. "tags/tag4.png"
+theme.tag5 = icons_path .. "tags/tag5.png"
+theme.tag6 = icons_path .. "tags/tag6.png"
+theme.tag7 = icons_path .. "tags/tag7.png"
+theme.tag8 = icons_path .. "tags/tag8.png"
+theme.tag9 = icons_path .. "tags/tag9.png"
+-- theme.taglist_spacing = dpi(2)
+
+-- audio icons
+theme.audio = icons_path .. "audio/audio.png"
+theme.audio1 = icons_path .. "audio/audio1.png"
+theme.audio2 = icons_path .. "audio/audio2.png"
+
+
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_submenu_icon = awesome_path.."/icons/arrow.png"
+theme.menu_submenu_icon = icons_path .. "arrow.png"
 theme.menu_height = dpi(35)
 theme.menu_width  = dpi(200)
 theme.menu_font = theme.font_name .. "12"
@@ -82,8 +101,8 @@ theme.menu_submenu_icon_size = 0
 
 
 -- Define the image to load
-theme.titlebar_close_button_normal = awesome_path.."/icons/the_lost_head.png"
-theme.titlebar_close_button_focus  = awesome_path.."/icons/isaac_head.png"
+theme.titlebar_close_button_normal = icons_path .. "the_lost_head.png"
+theme.titlebar_close_button_focus  = icons_path .. "isaac_head.png"
 
 theme.titlebar_minimize_button_normal = themes_path.."default/titlebar/minimize_normal.png"
 theme.titlebar_minimize_button_focus  = themes_path.."default/titlebar/minimize_focus.png"
@@ -120,7 +139,7 @@ theme.layout_fullscreen = themes_path.."default/layouts/fullscreenw.png"
 theme.layout_tilebottom = themes_path.."default/layouts/tilebottomw.png"
 theme.layout_tileleft   = themes_path.."default/layouts/tileleftw.png"
 -- theme.layout_tile = themes_path.."default/layouts/tilew.png"
-theme.layout_tile = awesome_path.."/icons/godhead.png"
+theme.layout_tile = icons_path .. "godhead.png"
 theme.layout_tiletop = themes_path.."default/layouts/tiletopw.png"
 theme.layout_spiral  = themes_path.."default/layouts/spiralw.png"
 theme.layout_dwindle = themes_path.."default/layouts/dwindlew.png"
@@ -130,7 +149,7 @@ theme.layout_cornersw = themes_path.."default/layouts/cornersww.png"
 theme.layout_cornerse = themes_path.."default/layouts/cornersew.png"
 
 -- Menu icon
-theme.awesome_icon = awesome_path.."/icons/logo.png"
+theme.awesome_icon = icons_path .. "logo.png"
 -- theme_assets.awesome_icon(
 --     theme.menu_height, theme.bg_focus, theme.fg_focus
 -- )

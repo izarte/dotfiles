@@ -1,6 +1,7 @@
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
+
 -- local hotkeys_popup = require("awful.hotkeys_popup").widget
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Menubar library
@@ -154,31 +155,44 @@ function _M.get()
     --   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     -- Custon bindings
     awful.key({modkey             }, "q", function() client.focus:kill() end,
-              {description = "close focus window", group = "awesome"}),
+            {description = "close focus window", group = "awesome"}),
     awful.key({modkey             }, "b", function() awful.spawn(browser) end,
-              {description = "open internet browser", group = "launcher"}),
+            {description = "open internet browser", group = "launcher"}),
     awful.key({modkey             }, "e", function() awful.spawn(file_explorer) end,
-              {description = "open file explorer", group = "launcher"}),
+            {description = "open file explorer", group = "launcher"}),
     awful.key({modkey             }, "l", function() awful.util.spawn_with_shell("bash " .. RC.vars.utils_path .. "/lock_screen.sh") end,
-              {description = "lock screen", group = "control"}),
+            {description = "lock screen", group = "control"}),
     awful.key({modkey             }, "c", function() awful.spawn("code") end,
-              {description = "open visual studio code", group = "launcher"}),
+            {description = "open visual studio code", group = "launcher"}),
     awful.key({modkey             }, "space", function() awful.spawn("albert toggle") end,
-              {description = "open app finder", group = "launcher"}),
+            {description = "open app finder", group = "launcher"}),
 
-    awful.key({             }, "XF86AudioRaiseVolume", function() awful.util.spawn_with_shell("pactl -- set-sink-volume 0 +10%") end,
-              {description = "increase volume", group = "control"}),
-    awful.key({             }, "XF86AudioLowerVolume", function() awful.util.spawn_with_shell("pactl -- set-sink-volume 0 -10%") end,
-              {description = "decrease volume", group = "control"}),
-    awful.key({             }, "XF86AudioMute", function() awful.util.spawn_with_shell("pactl set-sink-mute 0 toggle ") end,
-              {description = "toogle mute/unmute", group = "control"}),
+    awful.key({             }, "XF86AudioRaiseVolume", function()
+        awful.util.spawn_with_shell("pactl -- set-sink-volume 0 +5%")
+        awesome.emit_signal("volume_change")
+    end,
+            {description = "increase volume", group = "control"}),
+    
+    awful.key({             }, "XF86AudioLowerVolume", function()
+        awful.util.spawn_with_shell("pactl -- set-sink-volume 0 -5%")
+        awesome.emit_signal("volume_change")
+    end,
+            {description = "decrease volume", group = "control"}),
+    
+    awful.key({             }, "XF86AudioMute", function()
+        awful.util.spawn_with_shell("pactl set-sink-mute 0 toggle")
+        awesome.emit_signal("volume_change")
+    end,
+            {description = "toogle mute/unmute", group = "control"}),
 
     awful.key({             }, "XF86MonBrightnessUp", function() awful.util.spawn_with_shell("blight set $(($(blight get)+20))") end,
-              {description = "increase brightenss", group = "control"}),
+            {description = "increase brightenss", group = "control"}),
+    
     awful.key({             }, "XF86MonBrightnessDown", function() awful.util.spawn_with_shell("blight set $(($(blight get)-20))") end,
-              {description = "decrease brightness", group = "control"}),
-     awful.key({            }, "XF86TouchpadToggle", function() awful.util.spawn_with_shell("bash " .. RC.vars.utils_path .. "/touchpad.sh") end,
-              {description = "toggle touchpad", group = "control"})
+            {description = "decrease brightness", group = "control"}),
+    
+    awful.key({            }, "XF86TouchpadToggle", function() awful.util.spawn_with_shell("bash " .. RC.vars.utils_path .. "/touchpad.sh") end,
+            {description = "toggle touchpad", group = "control"})
 	)
 
   return globalkeys

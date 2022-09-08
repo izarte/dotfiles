@@ -4,8 +4,8 @@ local awful = require("awful")
 
 local _M = {}
 local modkey = RC.vars.modkey
+local beautiful = require("beautiful")
 
--- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 -- {{{ Key bindings
 
@@ -15,7 +15,6 @@ function _M.get(globalkeys)
   -- This should map on the top row of your keyboard, usually 1 to 9.
   for i = 1, 9 do
     globalkeys = gears.table.join(globalkeys,
-    
       --  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
       -- View tag only.
       awful.key({ modkey }, "#" .. i + 9,
@@ -25,6 +24,7 @@ function _M.get(globalkeys)
           if tag then
             tag:view_only()
           end
+          -- update_tags(tag)
         end,
         {description = "view tag #"..i, group = "tag"}),
 
@@ -60,7 +60,7 @@ function _M.get(globalkeys)
           if client.focus then
             local tag = client.focus.screen.tags[i]
             if tag then
-              client.focus:toggle_tag(tag)
+              client.focus:toggle_tag(tag) 
             end
           end
         end,
