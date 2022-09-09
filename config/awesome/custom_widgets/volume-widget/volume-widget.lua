@@ -1,6 +1,7 @@
 local wibox = require("wibox")
 local awful = require("awful")
--- local naughty = require("naughty")
+local gears = require("gears")
+local naughty = require("naughty")
 local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
@@ -22,7 +23,7 @@ function Volume:new()
 	-- Create imagebox widget
 	obj.widget = wibox.widget{ widget = wibox.widget.imagebox() }
 	obj.widget:set_resize(true)
-	obj.widget:set_image(beautiful.awesome_icon)
+	obj.widget:set_image(self:get_icon())
 	obj.widget:connect_signal("button::press", function(c) awful.spawn("pavucontrol") end)
 
 	-- Add a tooltip to the imagebox
@@ -30,7 +31,7 @@ function Volume:new()
 		timer_function = function() return obj:tooltipText() end } )
 	obj.tooltip:add_to_object(obj.widget)
 
-	obj:update()
+	-- obj:update()
 
 	return obj
 end
@@ -39,24 +40,71 @@ function Volume:tooltipText()
 	return self:get_volume() .. "%"
 end
 
+local show_volume_notification = function(img)
+    naughty.notify({
+		-- text = "" .. vol,
+		-- {
+		-- 	{image = img, widget = wibox.widget.imagebox},
+		-- 	id = 'margin_role',
+		-- 	top = dpi(5),
+		-- 	bottom = dpi(5),
+		-- 	left = dpi(5),
+		-- 	right = dpi(5),
+		-- 	widget = wibox.container.margin
+		-- },
+		-- widget_template = {
+		-- 	image = img,
+		-- 	widget = wibox.widget.imagebox
+		-- },
+		icon = img,
+		-- width = dpi(200),
+		-- height = dpi(200),
+		-- widget = wibox.container.background,
+		timeout = 1,
+		position = "bottom_middle",
+		shape = gears.shape.rounded_rect,
+		opacity = 0.9,
+		replaces_id = 1
+	})
+end
+
+function Volume:get_icon()
+	local icon = ""
+	local muted = run("pactl list sinks | grep -i silencio | cut -d ' ' -f 2")
+	if (muted) ~= ("no\n") then
+		icon = beautiful.audio
+	else
+		local vol = tonumber(self:get_volume())
+		if vol <= 100 then
+			icon = beautiful.audio1
+		else
+			icon = beautiful.audio2
+		end
+	end
+	return icon
+end
+
 function Volume:update()
 	-- self.widget:set_image(beautiful.audio)
-	local v = self:get_volume()
-    local muted = run("pactl list sinks | grep -i silencio | cut -d ' ' -f 2")
-	local vol = tonumber(v)
-    if (muted) ~= ("no\n") then
-        self.widget:set_image(beautiful.audio)
-    else
-        if vol <= 100 then
-            self.widget:set_image(beautiful.audio1)
-        else
-            self.widget:set_image(beautiful.audio2)
-        end
-    end
+	local img = self:get_icon()
+	self.widget:set_image(img)
+	show_volume_notification(img)
+end
+
+function Volume:up()
+	run("pactl -- set-sink-volume 0 +5%")
+end
+
+function Volume:down()
+	run("pactl -- set-sink-volume 0 -5%")
+end
+
+function Volume:mute()
+	run("pactl set-sink-mute 0 toggle")
 end
 
 function Volume:get_volume()
-	return run("pactl list sinks | grep -i 'volumen: front' | cut -d '/' -f 2 | tr -s '\n' ' ' | sed -e 's/ *//g' | sed -e 's/%//g' |/bin/cat -e")
+	return run("pactl list sinks | grep -i 'volumen: front' | cut -d '/' -f 2 | tr -s '\n' ' ' | sed -e 's/ *//g' | sed -e 's/%//g'")
 end
 
 function Volume.mt:__call(...)

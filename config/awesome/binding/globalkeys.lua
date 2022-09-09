@@ -7,6 +7,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Menubar library
 local menubar = require("menubar")
 
+local volumen_widget = require("custom_widgets.volume-widget.volume-widget")
+
 -- Resource Configuration
 local modkey = RC.vars.modkey
 local terminal = RC.vars.terminal
@@ -168,19 +170,19 @@ function _M.get()
             {description = "open app finder", group = "launcher"}),
 
     awful.key({             }, "XF86AudioRaiseVolume", function()
-        awful.util.spawn_with_shell("pactl -- set-sink-volume 0 +5%")
+        volumen_widget:up()
         awesome.emit_signal("volume_change")
     end,
             {description = "increase volume", group = "control"}),
     
     awful.key({             }, "XF86AudioLowerVolume", function()
-        awful.util.spawn_with_shell("pactl -- set-sink-volume 0 -5%")
+        volumen_widget:down()
         awesome.emit_signal("volume_change")
     end,
             {description = "decrease volume", group = "control"}),
     
     awful.key({             }, "XF86AudioMute", function()
-        awful.util.spawn_with_shell("pactl set-sink-mute 0 toggle")
+        volumen_widget:mute()
         awesome.emit_signal("volume_change")
     end,
             {description = "toogle mute/unmute", group = "control"}),

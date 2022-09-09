@@ -24,7 +24,14 @@ local _M = {}
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock('%H:%M')
+mytextclock = wibox.widget{
+  {
+    widget = wibox.widget.textclock('%H:%M'),
+  },
+  left = dpi(6),
+  right = dpi(5),
+  widget = wibox.container.margin
+}
 
 awful.screen.connect_for_each_screen(function(s)
   -- Wallpaper
@@ -59,6 +66,7 @@ awful.screen.connect_for_each_screen(function(s)
         tagicon.image = unfocus_icon
     end
   end
+
   -- Create a taglist widget
   s.mytaglist = awful.widget.taglist {
     screen  = s,

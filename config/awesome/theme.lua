@@ -62,8 +62,11 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 )
 
 -- Variables set for theming notifications:
--- notification_font
--- notification_[bg|fg]
+theme.notification_font = theme.font_name
+theme.notification_bg = theme.bg_normal
+theme.notification_fg = theme.fg_normal
+theme.width = dpi(20)
+theme.height = dpi(20)
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
 
