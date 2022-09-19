@@ -40,26 +40,22 @@ function Volume:tooltipText()
 	return self:get_volume() .. "%"
 end
 
-local show_volume_notification = function(img)
-    naughty.notify({
-		-- text = "" .. vol,
-		-- {
-		-- 	{image = img, widget = wibox.widget.imagebox},
-		-- 	id = 'margin_role',
-		-- 	top = dpi(5),
-		-- 	bottom = dpi(5),
-		-- 	left = dpi(5),
-		-- 	right = dpi(5),
-		-- 	widget = wibox.container.margin
-		-- },
-		-- widget_template = {
-		-- 	image = img,
-		-- 	widget = wibox.widget.imagebox
-		-- },
+-- function Volume:show_volume_notification(img)
+-- 	return self:get_volume() .. "%"
+-- end
+
+function Volume:show_volume_notification(img)
+    -- local p = self:get_volume()
+	naughty.notify({
+		text = "" .. self:get_volume(),
 		icon = img,
-		-- width = dpi(200),
+	-- title = "" .. self:get_volume(),
+	-- text = "puta",
+	-- icon_size = dpi(100),
+		-- width = dpi(100),
 		-- height = dpi(200),
 		-- widget = wibox.container.background,
+		valign,
 		timeout = 1,
 		position = "bottom_middle",
 		shape = gears.shape.rounded_rect,
@@ -88,7 +84,7 @@ function Volume:update()
 	-- self.widget:set_image(beautiful.audio)
 	local img = self:get_icon()
 	self.widget:set_image(img)
-	show_volume_notification(img)
+	self:show_volume_notification(img)
 end
 
 function Volume:up()

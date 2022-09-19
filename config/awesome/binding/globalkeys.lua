@@ -1,7 +1,7 @@
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
-
+local notifications = require("deco.notifications")
 -- local hotkeys_popup = require("awful.hotkeys_popup").widget
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Menubar library
@@ -93,9 +93,20 @@ function _M.get()
               {description = "increase the number of columns", group = "layout"}),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
               {description = "decrease the number of columns", group = "layout"}),
-    awful.key({ modkey,           }, "-", function () awful.layout.inc( 1)                end,
+    awful.key({ modkey,           }, ".", function ()
+        notifications.show_layer()
+    end,
+                {description = "see actual layout", group = "layout"}),
+    
+    awful.key({ modkey,           }, "-", function ()
+        awful.layout.inc(1)
+        notifications.show_layer()
+    end,
               {description = "select next", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "-", function () awful.layout.inc(-1)                end,
+    awful.key({ modkey, "Shift"   }, "-", function ()
+        awful.layout.inc(-1)
+        notifications.show_layer()
+    end,
               {description = "select previous", group = "layout"}),
 
     awful.key({ modkey, "Control" }, "n",

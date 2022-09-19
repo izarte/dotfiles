@@ -10,6 +10,7 @@ local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 local awesome_path = os.getenv("HOME") .. ("/.config/awesome/")
 local icons_path = awesome_path .. "icons/"
+local layouts_path = icons_path .. "layouts/"
 
 local theme = {}
 
@@ -133,23 +134,41 @@ theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/m
 -- theme.wallpaper = themes_path.."default/background.png"
 
 -- You can use your own layout icons like this:
-theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
-theme.layout_fairv = themes_path.."default/layouts/fairvw.png"
-theme.layout_floating  = themes_path.."default/layouts/floatingw.png"
-theme.layout_magnifier = themes_path.."default/layouts/magnifierw.png"
-theme.layout_max = themes_path.."default/layouts/maxw.png"
-theme.layout_fullscreen = themes_path.."default/layouts/fullscreenw.png"
-theme.layout_tilebottom = themes_path.."default/layouts/tilebottomw.png"
-theme.layout_tileleft   = themes_path.."default/layouts/tileleftw.png"
--- theme.layout_tile = themes_path.."default/layouts/tilew.png"
 theme.layout_tile = icons_path .. "godhead.png"
-theme.layout_tiletop = themes_path.."default/layouts/tiletopw.png"
-theme.layout_spiral  = themes_path.."default/layouts/spiralw.png"
-theme.layout_dwindle = themes_path.."default/layouts/dwindlew.png"
-theme.layout_cornernw = themes_path.."default/layouts/cornernww.png"
-theme.layout_cornerne = themes_path.."default/layouts/cornernew.png"
-theme.layout_cornersw = themes_path.."default/layouts/cornersww.png"
-theme.layout_cornerse = themes_path.."default/layouts/cornersew.png"
+theme.layout_fairh = layouts_path.."fairhw.png"
+theme.layout_fairv = layouts_path.."fairvw.png"
+theme.layout_floating  = layouts_path.."floatingw.png"
+theme.layout_magnifier = layouts_path.."magnifierw.png"
+theme.layout_max = layouts_path.."maxw.png"
+theme.layout_fullscreen = layouts_path.."fullscreenw.png"
+theme.layout_tilebottom = layouts_path.."tilebottomw.png"
+theme.layout_tileleft   = layouts_path.."tileleftw.png"
+theme.layout_tiletop = layouts_path.."tiletopw.png"
+theme.layout_spiral  = layouts_path.."spiralw.png"
+theme.layout_dwindle = layouts_path.."dwindlew.png"
+theme.layout_cornernw = layouts_path.."cornernww.png"
+theme.layout_cornerne = layouts_path.."cornernew.png"
+theme.layout_cornersw = layouts_path.."cornersww.png"
+theme.layout_cornerse = layouts_path.."cornersew.png"
+
+theme.layout_list = {}
+theme.layout_list["tile"] = theme.layout_tile
+theme.layout_list["floating"] = theme.layout_floating
+theme.layout_list["tileleft"] = theme.layout_tileleft
+theme.layout_list["tilebottom"] = theme.layout_tilebottom
+theme.layout_list["tiletop"] = theme.layout_tiletop
+theme.layout_list["fairv"] = theme.layout_fairv
+theme.layout_list["fairh"] = theme.layout_fairh
+theme.layout_list["spiral"] = theme.layout_spiral
+theme.layout_list["dwindle"] = theme.layout_dwindle
+theme.layout_list["max"] = theme.layout_max
+--
+theme.layout_list["magnifier"] = theme.layout_magnifier
+theme.layout_list["fullscreen"] = theme.layout_fullscreen
+theme.layout_list["cornernw"] = theme.layout_cornernw
+theme.layout_list["cornerne"] = theme.layout_cornerne
+theme.layout_list["cornernsw"] = theme.layout_cornersw
+theme.layout_list["cornerse"] = theme.layout_cornerse
 
 -- Menu icon
 theme.awesome_icon = icons_path .. "logo.png"
