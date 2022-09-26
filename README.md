@@ -11,7 +11,7 @@
 
 If you want to copy files from you home `.config` directory into the project directory run:
 ```bash
-./tools/extract.sh
+./dev-tools/extract.sh
 ```
 
 `extract.sh` will copy content from directories specified in `folders` array into config file on this project.
