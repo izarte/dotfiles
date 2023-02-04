@@ -1,7 +1,7 @@
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
-
+local naughty = require("naughty")
 -- Widget and layout library
 local wibox = require("wibox")
 
@@ -38,4 +38,23 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+tag.connect_signal("property::selected",
+    function(t)
+        if awful.tag.selected() then
+          local tags = awful.screen.focused().tags
+          local selected_tag = awful.tag.selected()
+          for k, v in pairs(tags) do
+            if v.active then
+              v.icon = beautiful.no_active_tags[k]
+            end
+            if #v:clients() > 0 then
+              v.icon = beautiful.pending_tags[k]
+            end
+          end
+
+          selected_tag.icon = beautiful.active_tags[tonumber(selected_tag.name)]
+          selected_tag.active = true
+        end
+    end)
 -- }}}

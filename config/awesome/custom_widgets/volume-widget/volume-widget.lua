@@ -51,7 +51,7 @@ function Volume:show_volume_notification(img)
 		icon = img,
 	-- title = "" .. self:get_volume(),
 	-- text = "puta",
-	-- icon_size = dpi(100),
+		icon_size = dpi(100),
 		-- width = dpi(100),
 		-- height = dpi(200),
 		-- widget = wibox.container.background,

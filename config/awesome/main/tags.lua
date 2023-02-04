@@ -12,58 +12,75 @@ function _M.get ()
   awful.screen.connect_for_each_screen(function(s)
 
     tags = awful.tag.add("", {
-      icon = beautiful.tag1,
+      name = 1,
+      icon = beautiful.active_tags[1],
       screen = s,
       layout = RC.layouts[1],
       selected = true,
+      active = true,
     })
 
     tags = awful.tag.add("", {
-      icon = beautiful.tag2,
+      name = 2,
+      icon = beautiful.no_active_tags[2],
+      screen = s,
+      layout = RC.layouts[1],
+      active = false,
+    })
+
+    tags = awful.tag.add("", {
+      name = 3,
+      icon = beautiful.no_active_tags[3],
       screen = s,
       layout = RC.layouts[1],
     })
 
     tags = awful.tag.add("", {
-      icon = beautiful.tag3,
+      name = 4,
+      icon = beautiful.no_active_tags[4],
       screen = s,
       layout = RC.layouts[1],
+      active = false,
     })
 
     tags = awful.tag.add("", {
-      icon = beautiful.tag4,
+      name = 5,
+      icon = beautiful.no_active_tags[5],
       screen = s,
       layout = RC.layouts[1],
+      active = false,
     })
 
     tags = awful.tag.add("", {
-      icon = beautiful.tag5,
+      name = 6,
+      icon = beautiful.no_active_tags[6],
       screen = s,
       layout = RC.layouts[1],
+      active = false,
     })
 
     tags = awful.tag.add("", {
-      icon = beautiful.tag6,
+      name = 7,
+      icon = beautiful.no_active_tags[7],
       screen = s,
       layout = RC.layouts[1],
+      active = false,
     })
 
     tags = awful.tag.add("", {
-      icon = beautiful.tag7,
+      name = 8,
+      icon = beautiful.no_active_tags[8],
       screen = s,
       layout = RC.layouts[1],
+      active = false,
     })
 
     tags = awful.tag.add("", {
-      icon = beautiful.tag8,
+      name = 9,
+      icon = beautiful.no_active_tags[9],
       screen = s,
       layout = RC.layouts[1],
-    })
-
-    tags = awful.tag.add("", {
-      icon = beautiful.tag9,
-      screen = s,
-      layout = RC.layouts[1],
+      active = false,
     })
 
   

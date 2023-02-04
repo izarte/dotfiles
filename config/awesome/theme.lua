@@ -33,6 +33,8 @@ theme.border_normal = "#000000"
 theme.border_focus  = "#535d6c"
 theme.border_marked = "#91231c"
 
+theme.taglist_bg_focus = theme.bg_normal
+
 -- Fonts
 theme.font_name = "Hack Nerd Font Mono "
 theme.font = theme.font_name .. "9"
@@ -51,16 +53,15 @@ theme.font = theme.font_name .. "9"
 -- prompt_[fg|bg|fg_cursor|bg_cursor|font]
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
 -- Example:
--- theme.taglist_bg_focus = "#ff0000"
 
 -- Generate taglist squares:
-local taglist_square_size = dpi(5)
-theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
-    taglist_square_size, theme.fg_normal
-)
-theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
-    taglist_square_size, theme.fg_normal
-)
+-- local taglist_square_size = dpi(5)
+-- theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
+--     taglist_square_size, theme.fg_normal
+-- )
+-- theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
+--     taglist_square_size, theme.fg_normal
+-- )
 
 -- Variables set for theming notifications:
 theme.notification_font = theme.font_name
@@ -72,21 +73,48 @@ theme.height = dpi(20)
 -- notification_[border_color|border_width|shape|opacity]
 
 -- tags
-theme.tag1 = icons_path .. "tags/tag1.png"
-theme.tag2 = icons_path .. "tags/tag2.png"
-theme.tag3 = icons_path .. "tags/tag3.png"
-theme.tag4 = icons_path .. "tags/tag4.png"
-theme.tag5 = icons_path .. "tags/tag5.png"
-theme.tag6 = icons_path .. "tags/tag6.png"
-theme.tag7 = icons_path .. "tags/tag7.png"
-theme.tag8 = icons_path .. "tags/tag8.png"
-theme.tag9 = icons_path .. "tags/tag9.png"
+theme.active_tags = {
+    icons_path .. "tags/active/active_rune_1.png",
+    icons_path .. "tags/active/active_rune_2.png",
+    icons_path .. "tags/active/active_rune_3.png",
+    icons_path .. "tags/active/active_rune_4.png",
+    icons_path .. "tags/active/active_rune_5.png",
+    icons_path .. "tags/active/active_rune_6.png",
+    icons_path .. "tags/active/active_rune_7.png",
+    icons_path .. "tags/active/active_rune_8.png",
+    icons_path .. "tags/active/active_rune_9.png"
+}
+
+theme.no_active_tags = {
+    icons_path .. "tags/no_active/no_active_rune_1.png",
+    icons_path .. "tags/no_active/no_active_rune_2.png",
+    icons_path .. "tags/no_active/no_active_rune_3.png",
+    icons_path .. "tags/no_active/no_active_rune_4.png",
+    icons_path .. "tags/no_active/no_active_rune_5.png",
+    icons_path .. "tags/no_active/no_active_rune_6.png",
+    icons_path .. "tags/no_active/no_active_rune_7.png",
+    icons_path .. "tags/no_active/no_active_rune_8.png",
+    icons_path .. "tags/no_active/no_active_rune_9.png"
+}
+
+theme.pending_tags = {
+    icons_path .. "tags/pending/pending_rune_1.png",
+    icons_path .. "tags/pending/pending_rune_2.png",
+    icons_path .. "tags/pending/pending_rune_3.png",
+    icons_path .. "tags/pending/pending_rune_4.png",
+    icons_path .. "tags/pending/pending_rune_5.png",
+    icons_path .. "tags/pending/pending_rune_6.png",
+    icons_path .. "tags/pending/pending_rune_7.png",
+    icons_path .. "tags/pending/pending_rune_8.png",
+    icons_path .. "tags/pending/pending_rune_9.png"
+}
+
 -- theme.taglist_spacing = dpi(2)
 
 -- audio icons
-theme.audio = icons_path .. "audio/audio.png"
-theme.audio1 = icons_path .. "audio/audio1.png"
-theme.audio2 = icons_path .. "audio/audio2.png"
+theme.audio = icons_path .. "audio/mute.png"
+theme.audio1 = icons_path .. "audio/low_volume.png"
+theme.audio2 = icons_path .. "audio/high_volume.png"
 
 
 -- Variables set for theming the menu:
