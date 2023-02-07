@@ -52,8 +52,11 @@ tag.connect_signal("property::selected",
               v.icon = beautiful.pending_tags[k]
             end
           end
-
-          selected_tag.icon = beautiful.active_tags[tonumber(selected_tag.name)]
+          if #selected_tag:clients() > 0 then
+            selected_tag.icon = beautiful.active_pending_tags[tonumber(selected_tag.name)]
+          else
+            selected_tag.icon = beautiful.active_tags[tonumber(selected_tag.name)]
+          end
           selected_tag.active = true
         end
     end)

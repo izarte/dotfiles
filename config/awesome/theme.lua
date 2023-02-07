@@ -34,6 +34,7 @@ theme.border_focus  = "#535d6c"
 theme.border_marked = "#91231c"
 
 theme.taglist_bg_focus = theme.bg_normal
+theme.taglist_bg_urgent = "#FF19CC"
 
 -- Fonts
 theme.font_name = "Hack Nerd Font Mono "
@@ -107,6 +108,18 @@ theme.pending_tags = {
     icons_path .. "tags/pending/pending_rune_7.png",
     icons_path .. "tags/pending/pending_rune_8.png",
     icons_path .. "tags/pending/pending_rune_9.png"
+}
+
+theme.active_pending_tags = {
+    icons_path .. "tags/active_pending/active_pending_rune_1.png",
+    icons_path .. "tags/active_pending/active_pending_rune_2.png",
+    icons_path .. "tags/active_pending/active_pending_rune_3.png",
+    icons_path .. "tags/active_pending/active_pending_rune_4.png",
+    icons_path .. "tags/active_pending/active_pending_rune_5.png",
+    icons_path .. "tags/active_pending/active_pending_rune_6.png",
+    icons_path .. "tags/active_pending/active_pending_rune_7.png",
+    icons_path .. "tags/active_pending/active_pending_rune_8.png",
+    icons_path .. "tags/active_pending/active_pending_rune_9.png"
 }
 
 -- theme.taglist_spacing = dpi(2)
