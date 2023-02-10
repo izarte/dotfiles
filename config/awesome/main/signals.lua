@@ -39,6 +39,19 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
+client.connect_signal("manage", function(c)
+  local selected_tag = awful.tag.selected()
+  selected_tag.icon = beautiful.active_pending_tags[tonumber(selected_tag.name)]
+end)
+
+client.connect_signal("unmanage", function(c)
+  local selected_tag = awful.tag.selected()
+  if #selected_tag:clients() == 0 then
+    selected_tag.icon = beautiful.active_tags[tonumber(selected_tag.name)]
+  end
+end)
+
+
 tag.connect_signal("property::selected",
     function(t)
         if awful.tag.selected() then
