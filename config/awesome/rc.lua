@@ -101,6 +101,6 @@ require("main.signals")
 -- }}}
 
 -- {{{ Autostart aplications
-  awful.spawn.with_shell("picom --config $HOME/.config/picom/picom.conf --experimental-backends")
+  awful.spawn.with_shell("picom --config $HOME/.config/picom/picom.conf -b")
   awful.spawn.with_shell("albert")
 -- }}}
